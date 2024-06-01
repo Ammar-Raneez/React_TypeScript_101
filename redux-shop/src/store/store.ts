@@ -7,5 +7,9 @@ export const store = configureStore({
   }
 });
 
-// Export dispatch type
+// Export state type for use selector
+// ReturnType extracts the return type of the function call
+export type RootState = ReturnType<typeof store.getState>;
+
+// Export dispatch type of our state
 export type AppDispatch = typeof store.dispatch;

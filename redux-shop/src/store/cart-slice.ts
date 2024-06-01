@@ -30,7 +30,7 @@ const initialState: CartState = {
 
 // Guard check to ensure action is of AddPayload (only add action will have the title)
 const isAddPayload = (action: PayloadAction<Payload>): action is PayloadAction<AddPayload> => {
-  return 'title' in action;
+  return 'title' in action.payload;
 }
 
 export const cartSlice = createSlice({
