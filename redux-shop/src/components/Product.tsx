@@ -1,4 +1,8 @@
-type ProductProps = {
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store/cart-slice";
+import { useCartDispatch } from "../store/hooks";
+
+interface ProductProps {
   id: string;
   image: string;
   title: string;
@@ -7,12 +11,19 @@ type ProductProps = {
 };
 
 export default function Product({
+  id,
   image,
   title,
   price,
   description,
 }: ProductProps) {
-  function handleAddToCart() {}
+  // Its recommended to create your own custom dispatch hook that is more type safe
+  // const dispatch = useDispatch();
+  const dispatch = useCartDispatch();
+
+  function handleAddToCart() {
+    dispatch(addToCart({ id, title, price }));
+  }
 
   return (
     <article className="product">

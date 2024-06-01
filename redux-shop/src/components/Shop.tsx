@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react';
 
-type ShopProps = {
+interface ShopProps {
   children: ReactNode;
 };
 
