@@ -34,15 +34,15 @@ export function useTimersContext() {
   return timersCtx;
 }
 
-type TimersContextProviderProps = {
+interface TimersContextProviderProps {
   children: ReactNode;
 };
 
-type StartTimersAction = {
+interface StartTimersAction {
   type: 'START_TIMERS';
 };
 
-type StopTimersAction = {
+interface StopTimersAction {
   type: 'STOP_TIMERS';
 };
 
@@ -51,7 +51,7 @@ type StopTimersAction = {
  * because then the payload will be not be null
 */
 
-type AddTimerAction = {
+interface AddTimerAction {
   type: 'ADD_TIMER';
   payload: Timer;
 };
@@ -60,18 +60,19 @@ type Action = StartTimersAction | StopTimersAction | AddTimerAction;
 
 function timersReducer(state: TimersState, action: Action): TimersState {
   if (action.type === 'START_TIMERS') {
-    // state.isRunning = true;
     return {
       ...state,
       isRunning: true,
     };
   }
+
   if (action.type === 'STOP_TIMERS') {
     return {
       ...state,
       isRunning: false,
     };
   }
+
   if (action.type === 'ADD_TIMER') {
     return {
       ...state,
@@ -99,9 +100,11 @@ export default function TimersContextProvider({
     addTimer(timerData) {
       dispatch({ type: 'ADD_TIMER', payload: timerData });
     },
+
     startTimers() {
       dispatch({ type: 'START_TIMERS' });
     },
+
     stopTimers() {
       dispatch({ type: 'STOP_TIMERS' });
     },

@@ -20,7 +20,7 @@ export default function AddTimer() {
       <Input type="text" label="Name" id="name" />
       <Input type="number" label="Duration" id="duration" />
       <p>
-        <Button el='button'>Add Timer</Button>
+        <Button el='button' className='button'>Add Timer</Button>
       </p>
     </Form>
   );

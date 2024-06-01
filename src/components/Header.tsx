@@ -13,6 +13,7 @@ export default function Header() {
           timersCtx.isRunning ? timersCtx.stopTimers : timersCtx.startTimers
         }
         el='button'
+        className='button'
       >
         {timersCtx.isRunning ? 'Stop' : 'Start'} Timers
       </Button>
